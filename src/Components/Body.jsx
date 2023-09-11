@@ -11,10 +11,12 @@ const Body = ()=>{
         switch(btnVal){
             case 'AC' : setExpression(prevExpression =>''); break;
             case '=' :  setExpression(()=>{
-                        try{ math.evaluate(expression)
+                        try{ 
+                             return math.evaluate(expression);
                                 }
                                 catch(err){
                                     alert("Invalid Syntax")
+                                    return '';
                                 }
                         }); break;
 
@@ -25,9 +27,9 @@ const Body = ()=>{
     }
 
     return (
-        <div className="flex flex-col w-[500px] h-[500px] border-4 border-black rounded-lg p-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="flex flex-col w-[340px] sm:w-[400px] md:w-[500px] h-[500px] border-4 border-black rounded-lg p-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <Display displayVal={expression}/>
-            <div className='grid grid-cols-4 gap-4 h-[400px]'>
+            <div className='grid grid-cols-4 sm:gap-2 md:gap-4 h-[400px]'>
                 <Button btnFired={getExpression} cssText="text-black" cssColor="bg-gray-300" btnVal="("/>
                 <Button btnFired={getExpression} cssText="text-black" cssColor="bg-gray-300" btnVal=")"/>    
                 <Button btnFired={getExpression} cssText="text-black" cssColor="bg-gray-300" btnVal="Del"/>    
