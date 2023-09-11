@@ -3,16 +3,14 @@ import Display from './Display.jsx'
 import Button from './Button.jsx'
 import { useState } from 'react';
 const Body = ()=>{
-    const [expression , setExpression] = useState('');
-    console.log(expression)
-
+    const [expression , setExpression] = useState('');    // expression is the state variable and setExpression is the function to update the state variable
     const getExpression  = (btnVal)=>{
 
         switch(btnVal){
             case 'AC' : setExpression(prevExpression =>''); break;
             case '=' :  setExpression(()=>{
                         try{ 
-                             return math.evaluate(expression);
+                             return math.evaluate(expression)+'';
                                 }
                                 catch(err){
                                     alert("Invalid Syntax")
